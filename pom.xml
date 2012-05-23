@@ -4,7 +4,6 @@
   <groupId>net.minestatus</groupId>
   <artifactId>MineQuery</artifactId>
   <version>1.5-SNAPSHOT</version>
-  <packaging>pom</packaging>
   <name>MineQuery</name>
     <dependencies>
         <dependency>
@@ -14,4 +13,11 @@
             <type>jar</type>
         </dependency>
     </dependencies>
+    <packaging>jar</packaging>
+    <repositories>
+        <repository>
+        <id>bukkit-repo</id>
+        <url>http://repo.bukkit.org/content/groups/public/</url>
+        </repository>
+    </repositories>
 </project>
