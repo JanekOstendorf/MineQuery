@@ -70,21 +70,6 @@ public final class Minequery extends JavaPlugin {
 			serverPort = Integer.parseInt(props.getProperty("server-port", "25565"));
 			port = Integer.parseInt(props.getProperty("minequery-port", "25566"));
 			maxPlayers = Integer.parseInt(props.getProperty("max-players", "32"));
-            
-            // Prepare server version
-            Pattern versionPattern = Pattern.compile(".*\\s\\(MC: (\\d\\.\\d[\\.\\d]*)\\)", 0);
-            Matcher matcher = versionPattern.matcher(getServer().getVersion());
-            
-            if(matcher.find()) {
-                
-                serverVersion = matcher.group(1);
-                
-            }
-            else {
-                
-                serverVersion = "";
-                
-            }
 
 			// By default, "server-ip=" is set in server.properties which causes the default in getProperty() to not
 			// apply. This checks if it's blank and sets it to "ANY" if so.
@@ -122,6 +107,22 @@ public final class Minequery extends JavaPlugin {
 		if (server == null) {
 			throw new IllegalStateException("Cannot enable - Minequery not initialized");
 		}
+        
+                    
+        // Prepare server version
+        Pattern versionPattern = Pattern.compile(".*\\s\\(MC: (\\d\\.\\d[\\.\\d]*)\\)", 0);
+        Matcher matcher = versionPattern.matcher(this.getServer().getVersion());
+
+        if(matcher.find()) {
+
+            serverVersion = matcher.group(1);
+
+        }
+        else {
+
+            serverVersion = "";
+
+        }
 
 		// Start the server normally.
 		server.start();
